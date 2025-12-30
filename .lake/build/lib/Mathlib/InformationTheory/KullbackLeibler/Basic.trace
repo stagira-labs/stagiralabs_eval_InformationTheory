@@ -21,21 +21,21 @@
    "././src/./Mathlib/InformationTheory/KullbackLeibler/Basic.lean:104:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "././src/./Mathlib/InformationTheory/KullbackLeibler/Basic.lean:123:6: declaration uses 'sorry'",
+   "././src/./Mathlib/InformationTheory/KullbackLeibler/Basic.lean:124:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "././src/./Mathlib/InformationTheory/KullbackLeibler/Basic.lean:135:6: declaration uses 'sorry'",
+   "././src/./Mathlib/InformationTheory/KullbackLeibler/Basic.lean:137:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "././src/./Mathlib/InformationTheory/KullbackLeibler/Basic.lean:164:6: declaration uses 'sorry'",
+   "././src/./Mathlib/InformationTheory/KullbackLeibler/Basic.lean:167:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "././src/./Mathlib/InformationTheory/KullbackLeibler/Basic.lean:168:6: declaration uses 'sorry'",
+   "././src/./Mathlib/InformationTheory/KullbackLeibler/Basic.lean:171:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "././src/./Mathlib/InformationTheory/KullbackLeibler/Basic.lean:173:6: declaration uses 'sorry'",
+   "././src/./Mathlib/InformationTheory/KullbackLeibler/Basic.lean:176:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "././src/./Mathlib/InformationTheory/KullbackLeibler/Basic.lean:183:6: declaration uses 'sorry'",
+   "././src/./Mathlib/InformationTheory/KullbackLeibler/Basic.lean:186:6: declaration uses 'sorry'",
    "level": "warning"}],
- "depHash": "9081991109775128614"}
+ "depHash": "16305375731635027701"}
