@@ -78,8 +78,7 @@ lemma continuous_klFun : Continuous klFun := by unfold klFun; fun_prop
 lemma measurable_klFun : Measurable klFun := by sorry
 
 /-- `klFun` is strongly measurable. -/
-@[measurability]
-lemma stronglyMeasurable_klFun : StronglyMeasurable klFun := measurable_klFun.stronglyMeasurable
+@[target, measurability] lemma stronglyMeasurable_klFun : StronglyMeasurable klFun := measurable_klFun.stronglyMeasurable
 
 section Derivatives
 
@@ -112,7 +111,11 @@ differentiable there since the default value of `derivWithin` in that case is 0.
 @[target, simp]
 lemma leftDeriv_klFun : derivWithin klFun (Iio x) x = log x := by sorry
 
+@[target]
+
 lemma rightDeriv_klFun_one : derivWithin klFun (Ioi 1) 1 = 0 := by simp
+
+@[target]
 
 lemma leftDeriv_klFun_one : derivWithin klFun (Iio 1) 1 = 0 := by simp
 
