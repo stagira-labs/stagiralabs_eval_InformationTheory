@@ -60,7 +60,6 @@ theorem hammingDist_triangle_left (x y z : ∀ i, β i) :
     hammingDist x y ≤ hammingDist z x + hammingDist z y := by sorry
 
 /-- Corresponds to `dist_triangle_right`. -/
-@[target]
 theorem hammingDist_triangle_right (x y z : ∀ i, β i) :
     hammingDist x y ≤ hammingDist x z + hammingDist y z := by
   rw [hammingDist_comm y]
