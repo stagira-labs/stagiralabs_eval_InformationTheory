@@ -73,7 +73,7 @@ lemma klDiv_of_not_integrable (h : ¬ Integrable (llr μ ν) μ) : klDiv μ ν =
 @[target, simp]
 lemma klDiv_self (μ : Measure α) [SigmaFinite μ] : klDiv μ μ = 0 := by sorry
 
-@[target, simp]
+@[simp]
 lemma klDiv_zero_left [IsFiniteMeasure ν] : klDiv 0 ν = ν univ := by
   convert klDiv_of_ac_of_integrable (Measure.AbsolutelyContinuous.zero _) integrable_zero_measure
   simp [integral_zero_measure, EReal.coe_zero]
@@ -114,7 +114,6 @@ variable [IsFiniteMeasure μ] [IsFiniteMeasure ν]
 Note that since `klDiv` takes value in `ℝ≥0∞` (defined when it is finite as `ENNReal.ofReal (...)`),
 it is nonnegative by definition. This lemma proves that the argument of `ENNReal.ofReal`
 is also nonnegative. -/
-@[target]
 lemma integral_llr_add_sub_measure_univ_nonneg (hμν : μ ≪ ν) (h_int : Integrable (llr μ ν) μ) :
     0 ≤ ∫ x, llr μ ν x ∂μ + (ν univ).toReal - (μ univ).toReal := by
   rw [← integral_klFun_rnDeriv hμν h_int]
@@ -126,7 +125,6 @@ lemma toReal_klDiv (h : μ ≪ ν) (h_int : Integrable (llr μ ν) μ) :
 
 /-- If `μ ≪ ν` and `μ univ = ν univ`, then `toReal` of the Kullback-Leibler divergence is equal to
 an integral, without any integrability condition. -/
-@[target]
 lemma toReal_klDiv_of_measure_eq (h : μ ≪ ν) (h_eq : μ univ = ν univ) :
     (klDiv μ ν).toReal = ∫ a, llr μ ν a ∂μ := by
   by_cases h_int : Integrable (llr μ ν) μ
@@ -143,7 +141,6 @@ section Inequalities
 
 variable [IsFiniteMeasure μ] [IsFiniteMeasure ν]
 
-@[target]
 lemma integral_llr_add_mul_log_nonneg (hμν : μ ≪ ν) (h_int : Integrable (llr μ ν) μ) :
     0 ≤ ∫ x, llr μ ν x ∂μ + (μ univ).toReal * log (ν univ).toReal + 1 - (μ univ).toReal := by
   by_cases hμ : μ = 0
