@@ -78,7 +78,7 @@ lemma continuous_klFun : Continuous klFun := by unfold klFun; fun_prop
 lemma measurable_klFun : Measurable klFun := by sorry
 
 /-- `klFun` is strongly measurable. -/
-@[target, measurability]
+@[measurability]
 lemma stronglyMeasurable_klFun : StronglyMeasurable klFun := measurable_klFun.stronglyMeasurable
 
 section Derivatives
