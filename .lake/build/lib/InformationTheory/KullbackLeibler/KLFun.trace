@@ -1,0 +1,50 @@
+{"log":
+ [{"message":
+   ".> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib:././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/LeanSearchClient/.lake/build/lib:././.lake/packages/plausible/.lake/build/lib:././.lake/packages/SafeVerify/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/packages/VerifiedAgora/.lake/build/lib:././.lake/build/lib LD_LIBRARY_PATH= /shared/elan/toolchains/leanprover--lean4---v4.17.0/bin/lean ././././InformationTheory/KullbackLeibler/KLFun.lean -R ./././. -o ././.lake/build/lib/InformationTheory/KullbackLeibler/KLFun.olean -i ././.lake/build/lib/InformationTheory/KullbackLeibler/KLFun.ilean -c ././.lake/build/ir/InformationTheory/KullbackLeibler/KLFun.c --json",
+   "level": "trace"},
+  {"message":
+   "././././InformationTheory/KullbackLeibler/KLFun.lean:52:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/KullbackLeibler/KLFun.lean:57:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/KullbackLeibler/KLFun.lean:70:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/KullbackLeibler/KLFun.lean:78:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/KullbackLeibler/KLFun.lean:96:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/KullbackLeibler/KLFun.lean:99:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/KullbackLeibler/KLFun.lean:102:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/KullbackLeibler/KLFun.lean:107:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/KullbackLeibler/KLFun.lean:112:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/KullbackLeibler/KLFun.lean:123:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/KullbackLeibler/KLFun.lean:129:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/KullbackLeibler/KLFun.lean:133:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/KullbackLeibler/KLFun.lean:136:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/KullbackLeibler/KLFun.lean:152:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/KullbackLeibler/KLFun.lean:156:6: declaration uses 'sorry'",
+   "level": "warning"}],
+ "depHash": "16497208983226968212"}

@@ -1,0 +1,155 @@
+{"log":
+ [{"message":
+   ".> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib:././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/LeanSearchClient/.lake/build/lib:././.lake/packages/plausible/.lake/build/lib:././.lake/packages/SafeVerify/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/packages/VerifiedAgora/.lake/build/lib:././.lake/build/lib LD_LIBRARY_PATH= /shared/elan/toolchains/leanprover--lean4---v4.17.0/bin/lean ././././InformationTheory/Hamming.lean -R ./././. -o ././.lake/build/lib/InformationTheory/Hamming.olean -i ././.lake/build/lib/InformationTheory/Hamming.ilean -c ././.lake/build/ir/InformationTheory/Hamming.c --json",
+   "level": "trace"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:43:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:51:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:55:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:60:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:72:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:76:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:80:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:84:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:88:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:92:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:95:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:98:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:101:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:105:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:109:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:114:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:126:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:130:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:134:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:138:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:142:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:146:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:150:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:153:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:156:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:159:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:163:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:167:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:171:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:178:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:256:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:259:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:262:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:265:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:268:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:271:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:274:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:277:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:280:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:283:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:286:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:290:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:294:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:298:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:302:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:306:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:319:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:353:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:364:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "././././InformationTheory/Hamming.lean:373:8: declaration uses 'sorry'",
+   "level": "warning"}],
+ "depHash": "2016679437122288285"}
