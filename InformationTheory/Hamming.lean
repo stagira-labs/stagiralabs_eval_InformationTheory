@@ -317,7 +317,8 @@ instance : Dist (Hamming β) :=
 
 @[target, simp, push_cast]
 theorem dist_eq_hammingDist (x y : Hamming β) :
-    dist x y = hammingDist (ofHamming x) (ofHamming y) := by sorry
+    dist x y = hammingDist (ofHamming x) (ofHamming y) := by
+  rfl
 
 @[target]
 instance : PseudoMetricSpace (Hamming β) where
