@@ -78,7 +78,8 @@ lemma continuous_klFun : Continuous klFun := by unfold klFun; fun_prop
 
 /-- `klFun` is measurable. -/
 @[target, measurability, fun_prop]
-lemma measurable_klFun : Measurable klFun := by sorry
+lemma measurable_klFun : Measurable klFun := by
+  simpa using (continuous_klFun.measurable)
 
 /-- `klFun` is strongly measurable. -/
 @[target, measurability] lemma stronglyMeasurable_klFun : StronglyMeasurable klFun := measurable_klFun.stronglyMeasurable
@@ -108,17 +109,35 @@ lemma deriv_klFun : deriv klFun = log := by
 lemma not_differentiableWithinAt_klFun_Ioi_zero : ¬ DifferentiableWithinAt ℝ klFun (Ioi 0) 0 := by sorry
 
 @[target]
-lemma not_differentiableWithinAt_klFun_Iio_zero : ¬ DifferentiableWithinAt ℝ klFun (Iio 0) 0 := by sorry
+lemma not_differentiableWithinAt_klFun_Iio_zero : ¬ DifferentiableWithinAt ℝ klFun (Iio 0) 0 := by
+  intro h
+  have h_at : DifferentiableAt ℝ klFun 0 :=
+    h.differentiableAt (by
+      -- `Iio 0` is a left neighbourhood of `0`
+      have : (Iio (0 : ℝ)) ∈ 𝓝[≤] (0 : ℝ) := by
+        simpa using Iio_mem_nhdsWithin_Iic (0 : ℝ)
+      exact this)
+  exact not_differentiableAt_klFun_zero h_at
 
 /-- The right derivative of `klFun` is `log x`. This also holds at `x = 0` although `klFun` is not
 differentiable there since the default value of `derivWithin` in that case is 0. -/
 @[target, simp]
-lemma rightDeriv_klFun : derivWithin klFun (Ioi x) x = log x := by sorry
+lemma rightDeriv_klFun : derivWithin klFun (Ioi x) x = log x := by
+  by_cases hx : x = 0
+  · subst hx
+    simp [klFun]
+  · have hderiv : HasDerivAt klFun (log x) x := hasDerivAt_klFun hx
+    simpa using hderiv.derivWithin
 
 /-- The left derivative of `klFun` is `log x`. This also holds at `x = 0` although `klFun` is not
 differentiable there since the default value of `derivWithin` in that case is 0. -/
 @[target, simp]
-lemma leftDeriv_klFun : derivWithin klFun (Iio x) x = log x := by sorry
+lemma leftDeriv_klFun : derivWithin klFun (Iio x) x = log x := by
+  by_cases hx : x = 0
+  · subst hx
+    simp [klFun]
+  · have hderiv : HasDerivAt klFun (log x) x := hasDerivAt_klFun hx
+    simpa using hderiv.derivWithin
 
 @[target]
 
@@ -130,7 +149,8 @@ lemma leftDeriv_klFun_one : derivWithin klFun (Iio 1) 1 = 0 := by simp
 
 @[target]
 lemma tendsto_rightDeriv_klFun_atTop :
-    Tendsto (fun x ↦ derivWithin klFun (Ioi x) x) atTop atTop := by sorry
+    Tendsto (fun x ↦ derivWithin klFun (Ioi x) x) atTop atTop := by
+  simpa [rightDeriv_klFun] using tendsto_log_atTop
 
 end Derivatives
 
@@ -146,12 +166,36 @@ lemma isMinOn_klFun : IsMinOn klFun (Ici 0) 1 := by
 /-- The function `klFun` is nonnegative on `[0,∞)`. -/
 @[target]
 lemma klFun_nonneg (hx : 0 ≤ x) : 0 ≤ klFun x := by
-  have hle : klFun 1 ≤ klFun x := (isMinOn_klFun).right (by
-    simpa [Set.mem_Ici] using hx)
-  simpa [klFun_one] using hle
+  rcases eq_or_lt_of_le hx with rfl | hxpos
+  · simpa [klFun] using (by norm_num : (0 : ℝ) ≤ (1 : ℝ))
+  · have hlog : log x ≤ x - 1 := log_le_sub_one_of_pos hxpos
+    have hmul : x * log x ≤ x * (x - 1) :=
+      mul_le_mul_of_nonneg_left hlog (le_of_lt hxpos)
+    have : 0 ≤ x * log x + 1 - x := by
+      have : x * log x + 1 - x = x * log x - (x - 1) := by ring
+      have : x * log x - (x - 1) ≤ x * (x - 1) - (x - 1) :=
+        sub_le_sub_right hmul _
+      have : x * (x - 1) - (x - 1) = (x - 1) * (x - 1) := by ring
+      have : 0 ≤ (x - 1) * (x - 1) := by exact mul_self_nonneg (x - 1)
+      linarith
+    exact this
 
 @[target]
-lemma klFun_eq_zero_iff (hx : 0 ≤ x) : klFun x = 0 ↔ x = 1 := by sorry
+lemma klFun_eq_zero_iff (hx : 0 ≤ x) : klFun x = 0 ↔ x = 1 := by
+  constructor
+  · intro hzero
+    have hx_mem : x ∈ Set.Ici (0 : ℝ) := by
+      simpa [Set.mem_Ici] using hx
+    have h1_mem : (1 : ℝ) ∈ Set.Ici (0 : ℝ) := by
+      have : (0 : ℝ) ≤ (1 : ℝ) := by norm_num
+      simpa [Set.mem_Ici] using this
+    have hle1x : klFun (1 : ℝ) ≤ klFun x :=
+      (isMinOn_klFun).right hx_mem
+    have hlex1 : klFun x ≤ klFun (1 : ℝ) := by
+      simpa [klFun_one] using (le_of_eq hzero)
+    exact (strictConvexOn_klFun).eq_of_le_of_le hx_mem h1_mem hle1x hlex1
+  · intro h_eq
+    simpa [h_eq, klFun_one]
 
 lemma tendsto_klFun_atTop : Tendsto klFun atTop atTop := by
   have : klFun = (fun x ↦ x * (log x - 1) + 1) := by unfold klFun; ext; ring
