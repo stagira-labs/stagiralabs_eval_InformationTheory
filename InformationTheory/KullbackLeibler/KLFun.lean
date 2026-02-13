@@ -49,12 +49,12 @@ The Kullback-Leibler divergence is an f-divergence for this function. -/
 noncomputable def klFun (x : ℝ) : ℝ := x * log x + 1 - x
 
 @[target]
-lemma klFun_apply (x : ℝ) : klFun x = x * log x + 1 - x := by sorry
+lemma klFun_apply (x : ℝ) : klFun x = x * log x + 1 - x := by rfl
 
 lemma klFun_zero : klFun 0 = 1 := by simp [klFun]
 
 @[target]
-lemma klFun_one : klFun 1 = 0 := by sorry
+lemma klFun_one : klFun 1 = 0 := by simp [klFun]
 
 /-- `klFun` is strictly convex on [0,∞). -/
 lemma strictConvexOn_klFun : StrictConvexOn ℝ (Ici 0) klFun :=
@@ -96,7 +96,13 @@ lemma not_differentiableAt_klFun_zero : ¬ DifferentiableAt ℝ klFun 0 := by
 /-- The derivative of `klFun` is `log x`. This also holds at `x = 0` although `klFun` is not
 differentiable there since the default value of `deriv` in that case is 0. -/
 @[target, simp]
-lemma deriv_klFun : deriv klFun = log := by sorry
+lemma deriv_klFun : deriv klFun = log := by
+  funext x
+  by_cases hx : x = 0
+  · subst hx
+    simp [klFun]
+  · have hderiv : HasDerivAt klFun (log x) x := hasDerivAt_klFun hx
+    simpa using hderiv.deriv
 
 @[target]
 lemma not_differentiableWithinAt_klFun_Ioi_zero : ¬ DifferentiableWithinAt ℝ klFun (Ioi 0) 0 := by sorry
@@ -129,11 +135,20 @@ lemma tendsto_rightDeriv_klFun_atTop :
 end Derivatives
 
 @[target]
-lemma isMinOn_klFun : IsMinOn klFun (Ici 0) 1 := by sorry
+lemma isMinOn_klFun : IsMinOn klFun (Ici 0) 1 := by
+  refine ⟨?_, ?_⟩
+  · simp
+  · intro y hy
+    have hnonneg : (0 : ℝ) ≤ klFun y := klFun_nonneg (by exact hy)
+    have hzero : klFun 1 = 0 := by simpa using klFun_one
+    simpa [hzero] using hnonneg
 
 /-- The function `klFun` is nonnegative on `[0,∞)`. -/
 @[target]
-lemma klFun_nonneg (hx : 0 ≤ x) : 0 ≤ klFun x := by sorry
+lemma klFun_nonneg (hx : 0 ≤ x) : 0 ≤ klFun x := by
+  have hle : klFun 1 ≤ klFun x := (isMinOn_klFun).right (by
+    simpa [Set.mem_Ici] using hx)
+  simpa [klFun_one] using hle
 
 @[target]
 lemma klFun_eq_zero_iff (hx : 0 ≤ x) : klFun x = 0 ↔ x = 1 := by sorry
