@@ -82,7 +82,30 @@ lemma klDiv_zero_right [NeZero μ] : klDiv μ 0 = ∞ :=
   klDiv_of_not_ac (Measure.absolutelyContinuous_zero_iff.mp.mt (NeZero.ne _))
 
 @[target]
-lemma klDiv_eq_top_iff : klDiv μ ν = ∞ ↔ μ ≪ ν → ¬ Integrable (llr μ ν) μ := by sorry
+lemma klDiv_eq_top_iff : klDiv μ ν = ∞ ↔ μ ≪ ν → ¬ Integrable (llr μ ν) μ := by
+  classical
+  -- Rewrite the statement using the definition of `klDiv`
+  have h₁ : (klDiv μ ν = ∞) ↔ ¬ (μ ≪ ν ∧ Integrable (llr μ ν) μ) := by
+    by_cases h : (μ ≪ ν ∧ Integrable (llr μ ν) μ)
+    · -- when both conditions hold, `klDiv` is finite
+      have : klDiv μ ν =
+          ENNReal.ofReal (∫ x, llr μ ν x ∂μ + (ν univ).toReal - (μ univ).toReal) := by
+        rw [klDiv_def, if_pos h]
+      have : (klDiv μ ν = ∞) ↔ False := by
+        simpa [this] using Iff.rfl
+      simpa [h] using this
+    · -- otherwise `klDiv` is defined to be `∞`
+      have : klDiv μ ν = ∞ := by
+        rw [klDiv_def, if_neg h]
+      have : (klDiv μ ν = ∞) ↔ True := by
+        simpa [this] using Iff.rfl
+      simpa [h] using this
+  -- Logical equivalence between the two formulations of the right‑hand side
+  have h₂ : (μ ≪ ν → ¬ Integrable (llr μ ν) μ) ↔ ¬ (μ ≪ ν ∧ Integrable (llr μ ν) μ) := by
+    constructor
+    · intro h h_and; exact h h_and.1 h_and.2
+    · intro h h_ac h_int; exact h ⟨h_ac, h_int⟩
+  simpa [h₂] using h₁
 
 @[target]
 lemma klDiv_ne_top_iff : klDiv μ ν ≠ ∞ ↔ μ ≪ ν ∧ Integrable (llr μ ν) μ := by sorry
