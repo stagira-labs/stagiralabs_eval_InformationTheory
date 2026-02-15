@@ -67,7 +67,8 @@ lemma convexOn_klFun : ConvexOn ℝ (Ici 0) klFun := strictConvexOn_klFun.convex
 /-- `klFun` is convex on (0,∞).
 This is an often useful consequence of `convexOn_klFun`, which states convexity on [0, ∞). -/
 @[target]
-lemma convexOn_Ioi_klFun : ConvexOn ℝ (Ioi 0) klFun := by sorry
+lemma convexOn_Ioi_klFun : ConvexOn ℝ (Ioi 0) klFun :=
+  convexOn_klFun.subset Ioi_subset_Ici_self (convex_Ioi 0)
 
 /-- `klFun` is continuous. -/
 @[continuity, fun_prop]
