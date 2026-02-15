@@ -49,7 +49,7 @@ The Kullback-Leibler divergence is an f-divergence for this function. -/
 noncomputable def klFun (x : ℝ) : ℝ := x * log x + 1 - x
 
 @[target]
-lemma klFun_apply (x : ℝ) : klFun x = x * log x + 1 - x := by sorry
+lemma klFun_apply (x : ℝ) : klFun x = x * log x + 1 - x := rfl
 
 lemma klFun_zero : klFun 0 = 1 := by simp [klFun]
 
@@ -68,7 +68,7 @@ lemma convexOn_klFun : ConvexOn ℝ (Ici 0) klFun := strictConvexOn_klFun.convex
 This is an often useful consequence of `convexOn_klFun`, which states convexity on [0, ∞). -/
 @[target]
 lemma convexOn_Ioi_klFun : ConvexOn ℝ (Ioi 0) klFun :=
-  convexOn_klFun.subset Ioi_subset_Ici_self (convex_Ioi _)
+  convexOn_klFun.subset Ioi_subset_Ici_self (convex_Ioi 0)
 
 /-- `klFun` is continuous. -/
 @[continuity, fun_prop]
