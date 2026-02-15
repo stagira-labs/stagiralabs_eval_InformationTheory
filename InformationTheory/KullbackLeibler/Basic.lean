@@ -84,7 +84,7 @@ lemma klDiv_zero_right [NeZero μ] : klDiv μ 0 = ∞ :=
 @[target]
 lemma klDiv_eq_top_iff : klDiv μ ν = ∞ ↔ μ ≪ ν → ¬ Integrable (llr μ ν) μ := by
   rw [klDiv_def]
-  simp only [ite_eq_right_iff, EReal.coe_ennreal_ne_top, imp_false, not_and]
+  simp only [ite_eq_right_iff, not_and, imp_iff_not_or]
 
 @[target]
 lemma klDiv_ne_top_iff : klDiv μ ν ≠ ∞ ↔ μ ≪ ν ∧ Integrable (llr μ ν) μ := by sorry
