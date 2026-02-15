@@ -82,7 +82,9 @@ lemma klDiv_zero_right [NeZero μ] : klDiv μ 0 = ∞ :=
   klDiv_of_not_ac (Measure.absolutelyContinuous_zero_iff.mp.mt (NeZero.ne _))
 
 @[target]
-lemma klDiv_eq_top_iff : klDiv μ ν = ∞ ↔ μ ≪ ν → ¬ Integrable (llr μ ν) μ := by sorry
+lemma klDiv_eq_top_iff : klDiv μ ν = ∞ ↔ μ ≪ ν → ¬ Integrable (llr μ ν) μ := by
+  rw [klDiv_def]
+  simp only [ite_eq_right_iff, EReal.coe_ennreal_ne_top, imp_false, not_and]
 
 @[target]
 lemma klDiv_ne_top_iff : klDiv μ ν ≠ ∞ ↔ μ ≪ ν ∧ Integrable (llr μ ν) μ := by sorry
